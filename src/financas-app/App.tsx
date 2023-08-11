@@ -1,6 +1,7 @@
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { CustomStatusBar } from './src/components/CustomStatusBar';
+import 'react-native-reanimated';
+
 import {
   useFonts,
   Inter_400Regular,
@@ -8,8 +9,10 @@ import {
   Inter_700Bold,
   Inter_900Black
 } from '@expo-google-fonts/inter';
+
 import { Loading } from './src/components/Loading';
 import Routes from './src/routes';
+import { Background } from './src/components/Background';
 
 export default function App() {
   const [ fontsLoaded ] = useFonts({
@@ -19,11 +22,11 @@ export default function App() {
     Inter_900Black
   });
   return (
+      <Background>
       <NavigationContainer>
-        <SafeAreaProvider>
-          <CustomStatusBar barStyle='light-content' backgroundColor='#38a690' />
+          <StatusBar barStyle='light-content' />
           { fontsLoaded ? <Routes /> : <Loading /> }
-        </SafeAreaProvider>
       </NavigationContainer>
+      </Background>
   );
 }

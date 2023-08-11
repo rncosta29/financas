@@ -1,35 +1,51 @@
-import { View, Image, Text } from "react-native";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+
+import { InputDados } from "../TextInput";
 
 import {
     Container,
-    Containerlogo,
-    Containerform,
-    Titulo,
-    Texto,
-    Botao,
-    BotaoTexto
+    Botaologin,
+    Logintext
 } from "./styles";
-import logo from '../../assets/logo.png';
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type StackNavigation = {
+    Homepage: undefined;
+    DrawerRoutes: undefined;
+}
+
+export type StackTypes = NativeStackNavigationProp<StackNavigation>;
 
 export function Login() {
+    const [username, setUsername] = useState('');
+    const [senha, setSenha] = useState('');
+    const navigation = useNavigation<StackTypes>();
+
+    function logar(nome: String, senha: String) {
+        if(nome === '' && senha === '') {
+            navigation.navigate("DrawerRoutes");
+            console.log('Acerto - nome: '+nome+' e senha: '+senha);
+        } else {
+            console.log('Error - nome: '+nome+' e senha: '+senha);
+        }
+    }
+
     return(
         <Container>
-            <Containerlogo>
-                <Image
-                    source={logo}
-                    style={{width:'100%'}}
-                    resizeMode="contain"
-                />
-            </Containerlogo>
-
-            <Containerform>
-                <Titulo>Monitore seus gastos de qualquer lugar!</Titulo>
-                <Texto>Faça o login para começar</Texto>
-            </Containerform>
-
-            <Botao>
-                <BotaoTexto>Acessar</BotaoTexto>
-            </Botao>
+            <InputDados
+                value={username}
+                onChangeText={setUsername}
+                placeholder="Coloque seu username"
+            />
+            <InputDados
+                value={senha}
+                onChangeText={setSenha}
+                placeholder="Coloque sua senha"
+            />
+            <Botaologin onPress={() => logar(username, senha)}>
+                <Logintext>Entrar</Logintext>
+            </Botaologin>
         </Container>
     )
 }

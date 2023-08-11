@@ -1,13 +1,23 @@
 import styled from 'styled-components/native';
 import { THEME } from '../../theme';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
     flex: 1;
+    margin-top: 30;
 `
 
-export const Titulo = styled.Text`
-    text-align: center;
-    font-size: ${THEME.FONT_SIZE.LG};
-    font-family: ${THEME.FONT_FAMILY.BLACK};
-    color: ${THEME.COLORS.BACKGROUND_900};
+export const Botaologin = styled.TouchableOpacity`
+    height: 50px;
+    margin: 10px;
+    border-width: 1px;
+    border-radius: 15%;
+    background-color: ${THEME.COLORS.SUCCESS};
+    justify-content: center;
+    align-items: center;
+`
+
+export const Logintext = styled.Text`
+    color: ${THEME.COLORS.WHITE};
+    font-size: ${THEME.FONT_SIZE.MD}px;
+    font-weight: bold;
 `

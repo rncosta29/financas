@@ -1,5 +1,6 @@
 export const THEME = {
     COLORS: {
+      BACKGROUND_G: '#38A69D',
       BACKGROUND_700: '#E5E4E2',
       BACKGROUND_800: '#18181B',
       BACKGROUND_900: '#121214',
@@ -12,10 +13,11 @@ export const THEME = {
   
       SHAPE: '#2A2634',
   
-      PRIMARY: '#FF0909',
+      PRIMARY: '#A1A1A1',
       SECONDARY: '#FF9999',
       SUCCESS: '#34D399',
       ALERT: '#F87171',
+      WHITE: '#FFF',
   
       FOOTER: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.9)'],
       OVERLAY: 'rgba(0,0,0,0.6)',
