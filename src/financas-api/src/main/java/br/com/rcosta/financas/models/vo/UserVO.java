@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.github.dozermapper.core.Mapping;
 
-@JsonPropertyOrder({"id", "userName", "email", "password", "dataCriacao", "accountNonExpired", "accountNonLocked", "credentialsNonExpired", "enabled"})
+@JsonPropertyOrder({"id", "userName", "email", "password", "dataCriacao", "dataAtualizacao", "accountNonExpired", "accountNonLocked", "credentialsNonExpired", "enabled"})
 public class UserVO extends RepresentationModel<UserVO> implements Serializable {
 
 private static final long serialVersionUID = 1L;
@@ -22,6 +22,7 @@ private static final long serialVersionUID = 1L;
 	private String email;
 	private String password;
 	private Date dataCriacao;
+	private Date dataAtualizacao;
 	private Boolean accountNonExpired;
 	private Boolean accountNonLocked;
 	private Boolean credentialsNonExpired;
@@ -68,6 +69,14 @@ private static final long serialVersionUID = 1L;
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
+	
+	public Date getDataAtualizacao() {
+		return dataAtualizacao;
+	}
+
+	public void setDataAtualizacao(Date dataAtualizacao) {
+		this.dataAtualizacao = dataAtualizacao;
+	}
 
 	public Boolean getAccountNonExpired() {
 		return accountNonExpired;
@@ -105,8 +114,8 @@ private static final long serialVersionUID = 1L;
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(accountNonExpired, accountNonLocked, credentialsNonExpired, dataCriacao,
-				email, enabled, key, password, userName);
+		result = prime * result + Objects.hash(accountNonExpired, accountNonLocked, credentialsNonExpired,
+				dataAtualizacao, dataCriacao, email, enabled, key, password, userName);
 		return result;
 	}
 
@@ -122,6 +131,7 @@ private static final long serialVersionUID = 1L;
 		return Objects.equals(accountNonExpired, other.accountNonExpired)
 				&& Objects.equals(accountNonLocked, other.accountNonLocked)
 				&& Objects.equals(credentialsNonExpired, other.credentialsNonExpired)
+				&& Objects.equals(dataAtualizacao, other.dataAtualizacao)
 				&& Objects.equals(dataCriacao, other.dataCriacao) && Objects.equals(email, other.email)
 				&& Objects.equals(enabled, other.enabled) && Objects.equals(key, other.key)
 				&& Objects.equals(password, other.password) && Objects.equals(userName, other.userName);

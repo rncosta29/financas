@@ -64,10 +64,11 @@ public class SecurityConfig {
                         .requestMatchers(
 							"/auth/signin",
 							"/auth/refresh/**",
+							"/auth/create",
                     		"/swagger-ui/**",
                     		"/v3/api-docs/**"
                 		).permitAll()
-                        .requestMatchers("/auth/create").hasAnyAuthority("ADMIN")
+                        //.requestMatchers("/auth/create").hasAnyAuthority("ADMIN")
                         .requestMatchers("/api/**").authenticated()
                         .requestMatchers("/users").denyAll()
                 )

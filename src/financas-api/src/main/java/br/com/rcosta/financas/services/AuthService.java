@@ -83,7 +83,7 @@ public class AuthService {
 	public ResponseEntity<UserVO> save(UserVO model) throws Exception {
 		logger.info("Criando um novo usuário");
 		
-		Permission permission = permissionRepository.findById(1L).orElseThrow(() -> new ResourceNotFoundException("Nenhum registro encontrado para esse id!!!"));
+		Permission permission = permissionRepository.findById(2L).orElseThrow(() -> new ResourceNotFoundException("Nenhum registro encontrado para esse id!!!"));
 		var entity = DozzerMapper.parseObject(model, UserModel.class);
 		
 		entity.setAccountNonExpired(true);
@@ -99,4 +99,25 @@ public class AuthService {
 		
 		return ResponseEntity.ok(vo);
 	}
+	/*
+	public ResponseEntity<UserVO> save(UserVO model) throws Exception {
+		logger.info("Criando um novo usuário");
+		
+		List<Permission> permission = permissionRepository.findAll();
+		var entity = DozzerMapper.parseObject(model, UserModel.class);
+		
+		entity.setAccountNonExpired(true);
+		entity.setAccountNonLocked(true);
+		entity.setCredentialsNonExpired(true);
+		entity.setDataCriacao(new Date());
+		entity.setEnabled(true);
+		entity.setPassword(passwordEncode.encode(model.getPassword()));
+		entity.setPermissions(permission);
+		
+		var vo = DozzerMapper.parseObject(userRepository.save(entity), UserVO.class);
+		vo.add(linkTo(methodOn(UserController.class).findById(vo.getKey())).withSelfRel());
+		
+		return ResponseEntity.ok(vo);
+	}
+	*/
 }

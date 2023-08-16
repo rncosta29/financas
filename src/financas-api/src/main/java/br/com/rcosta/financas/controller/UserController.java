@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/api/user/v1")
+@RequestMapping("/api/v1/user")
 @Tag(name = "Usuario", description = "Endpoints para gerenciar clientes")
 public class UserController {
 
@@ -44,7 +44,7 @@ public class UserController {
 		return userService.findAll();
 	}
 
-	@CrossOrigin(origins = "http://localhost:8080")
+	@CrossOrigin(origins = "http://localhost:8088")
 	@GetMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML })
 	@Operation(summary = "Encontre um usuário", description = "Encontre um usuário por id", tags = {"Usuario"}, responses = {
 			@ApiResponse(description = "Success", responseCode = "200", content = 

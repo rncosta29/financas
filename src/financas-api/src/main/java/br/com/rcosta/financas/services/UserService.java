@@ -3,6 +3,7 @@ package br.com.rcosta.financas.services;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -75,6 +76,8 @@ private Logger logger = Logger.getLogger(UserService.class.getName());
 		var entity = userRepository.findById(userVO.getKey()).orElseThrow(() -> new ResourceNotFoundException("No records found this ID!!!"));
 		
 		entity.setUserName(userVO.getUserName());
+		entity.setEmail(userVO.getEmail());
+		entity.setDataAtualizacao(new Date());
 		
 		var vo = DozzerMapper.parseObject(userRepository.save(entity), UserVO.class);
 		vo.add(linkTo(methodOn(UserController.class).findById(vo.getKey())).withSelfRel());

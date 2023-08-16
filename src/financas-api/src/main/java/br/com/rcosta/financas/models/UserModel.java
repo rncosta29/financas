@@ -12,9 +12,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -38,6 +42,9 @@ public class UserModel implements UserDetails, Serializable {
 	
 	@Column(name = "data_criacao")
 	private Date dataCriacao;
+	
+	@Column(name = "data_atualizacao")
+	private Date dataAtualizacao;
 
 	@Column(name = "account_non_expired")
 	private Boolean accountNonExpired;
@@ -51,6 +58,9 @@ public class UserModel implements UserDetails, Serializable {
 	@Column(name = "enabled")
 	private Boolean enabled;
 	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_permission", joinColumns = {@JoinColumn (name = "id_user")},
+		inverseJoinColumns = {@JoinColumn (name = "id_permission")})
 	private List<Permission> permissions;
 	
 	public UserModel() { }
@@ -122,6 +132,14 @@ public class UserModel implements UserDetails, Serializable {
 		this.dataCriacao = dataCriacao;
 	}
 
+	public Date getDataAtualizacao() {
+		return dataAtualizacao;
+	}
+
+	public void setDataAtualizacao(Date dataAtualizacao) {
+		this.dataAtualizacao = dataAtualizacao;
+	}
+
 	public Boolean getAccountNonExpired() {
 		return accountNonExpired;
 	}
@@ -176,8 +194,8 @@ public class UserModel implements UserDetails, Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(accountNonExpired, accountNonLocked, credentialsNonExpired, dataCriacao, email, enabled, id,
-				password, permissions, userName);
+		return Objects.hash(accountNonExpired, accountNonLocked, credentialsNonExpired, dataAtualizacao, dataCriacao,
+				email, enabled, id, password, permissions, userName);
 	}
 
 	@Override
@@ -192,6 +210,7 @@ public class UserModel implements UserDetails, Serializable {
 		return Objects.equals(accountNonExpired, other.accountNonExpired)
 				&& Objects.equals(accountNonLocked, other.accountNonLocked)
 				&& Objects.equals(credentialsNonExpired, other.credentialsNonExpired)
+				&& Objects.equals(dataAtualizacao, other.dataAtualizacao)
 				&& Objects.equals(dataCriacao, other.dataCriacao) && Objects.equals(email, other.email)
 				&& Objects.equals(enabled, other.enabled) && Objects.equals(id, other.id)
 				&& Objects.equals(password, other.password) && Objects.equals(permissions, other.permissions)
