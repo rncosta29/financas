@@ -60,7 +60,7 @@ public class AuthController {
 		return token;
 	}
 	
-	@CrossOrigin(origins = { "http://localhost:8088" })
+	//@CrossOrigin(origins = { "http://localhost:8088", "http://localhost:19002" })
 	@PostMapping(value = "/create", produces = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML }, consumes = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML })
 	@Operation(summary = "Criando um novo usuário", description = "Criando um novo usuário", tags = {"Authentication"}, responses = {
 			@ApiResponse(description = "Success", responseCode = "200", content = 

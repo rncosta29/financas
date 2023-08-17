@@ -19,6 +19,9 @@ web-build/
 # Metro
 .metro-health-check*
 
+# misc
+.env
+
 # debug
 npm-debug.*
 yarn-debug.*

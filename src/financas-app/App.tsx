@@ -13,6 +13,7 @@ import {
 import { Loading } from './src/components/Loading';
 import Routes from './src/routes';
 import { Background } from './src/components/Background';
+import AuthProvider from './src/contexts/auth';
 
 export default function App() {
   const [ fontsLoaded ] = useFonts({
@@ -22,11 +23,11 @@ export default function App() {
     Inter_900Black
   });
   return (
-      <Background>
       <NavigationContainer>
+        <AuthProvider>
           <StatusBar barStyle='light-content' />
           { fontsLoaded ? <Routes /> : <Loading /> }
+        </AuthProvider>
       </NavigationContainer>
-      </Background>
   );
 }
