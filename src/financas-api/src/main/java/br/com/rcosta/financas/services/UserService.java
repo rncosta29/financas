@@ -64,7 +64,8 @@ private Logger logger = Logger.getLogger(UserService.class.getName());
 		
 		var usuario = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Nenhum registro encontrado para esse id!!!"));
 		
-		var vo = DozzerMapper.parseObject(userRepository.save(usuario), UserVO.class);
+		var vo = DozzerMapper.parseObject(usuario, UserVO.class);
+		//var vo = DozzerMapper.parseObject(userRepository.save(usuario), UserVO.class);
 		vo.add(linkTo(methodOn(UserController.class).findById(vo.getKey())).withSelfRel());
 		
 		return vo;

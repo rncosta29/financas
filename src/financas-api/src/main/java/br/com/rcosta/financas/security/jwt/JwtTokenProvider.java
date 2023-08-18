@@ -123,4 +123,10 @@ public class JwtTokenProvider {
 			throw new InvalidJwtAuthenticationException("Expired or invalid JWT token!");
 		}
 	}
+	
+	public String getIdUsuario(String token) {
+		DecodedJWT decodedJWT = decodedToken(token);
+		String name = this.userDetailsService.loadUserByUsername(decodedJWT.getSubject()).getUsername();
+		return name;
+	}
 }

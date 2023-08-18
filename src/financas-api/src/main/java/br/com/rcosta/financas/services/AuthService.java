@@ -99,6 +99,14 @@ public class AuthService {
 		
 		return ResponseEntity.ok(vo);
 	}
+	
+	public ResponseEntity<UserVO> getUserByToken(String token) {
+		String username = tokenProvider.getIdUsuario(token);
+		var model = userRepository.findByUsername(username);
+		var vo = DozzerMapper.parseObject(model, UserVO.class);
+		
+		return ResponseEntity.ok(vo);
+	}
 	/*
 	public ResponseEntity<UserVO> save(UserVO model) throws Exception {
 		logger.info("Criando um novo usuário");

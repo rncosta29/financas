@@ -3,7 +3,7 @@ package br.com.rcosta.financas.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -73,6 +73,19 @@ public class AuthController {
 	public ResponseEntity<UserVO> create(@RequestBody UserVO vo) throws Exception {
 		
 		return authService.save(vo);
+	}
+	
+	@GetMapping(value = "/find", produces = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML }, consumes = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML })
+	@Operation(summary = "Recuperando usuário por token", description = "Recuperando usuário por token", tags = {"Authentication"}, responses = {
+			@ApiResponse(description = "Success", responseCode = "200", content = 
+					@Content(schema = @Schema(implementation = UserVO.class))
+			),
+			@ApiResponse(description = "Bad Request", responseCode = "204", content = @Content),
+			@ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),
+			@ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content)
+	})
+	public ResponseEntity<UserVO> getUserByToken(@RequestHeader(value = "Username", required = true) String token) {
+		return authService.getUserByToken(token);
 	}
 	
 	private boolean checkIfParamsIsNotNull(AccountCredentialsVO data) {

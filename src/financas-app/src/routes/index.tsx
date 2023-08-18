@@ -9,15 +9,15 @@ export default function Routes() {
     return(
         <Stack.Navigator>
             <Stack.Screen
-                name="Homepage"
-                component={Home}
+                name="DrawerRoutes"
+                component={DrawerRoutes}
                 options={{
                     headerShown:false
                 }}
             />
             <Stack.Screen
-                name="DrawerRoutes"
-                component={DrawerRoutes}
+                name="Homepage"
+                component={Home}
                 options={{
                     headerShown:false
                 }}
