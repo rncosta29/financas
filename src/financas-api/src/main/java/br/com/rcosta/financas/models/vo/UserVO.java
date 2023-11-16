@@ -13,7 +13,7 @@ import com.github.dozermapper.core.Mapping;
 @JsonPropertyOrder({"id", "userName", "email", "password", "dataCriacao", "dataAtualizacao", "accountNonExpired", "accountNonLocked", "credentialsNonExpired", "enabled"})
 public class UserVO extends RepresentationModel<UserVO> implements Serializable {
 
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	@JsonProperty("id")
 	@Mapping("id")

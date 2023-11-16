@@ -23,7 +23,7 @@ import br.com.rcosta.financas.repository.UserRepository;
 @Service
 public class UserService implements UserDetailsService {
 
-private Logger logger = Logger.getLogger(UserService.class.getName());
+	private Logger logger = Logger.getLogger(UserService.class.getName());
 	
 	@Autowired
 	UserRepository userRepository;

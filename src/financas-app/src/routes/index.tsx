@@ -8,6 +8,13 @@ const Stack = createNativeStackNavigator();
 export default function Routes() {
     return(
         <Stack.Navigator>
+                        <Stack.Screen
+                name="Homepage"
+                component={Home}
+                options={{
+                    headerShown:false
+                }}
+            />
             <Stack.Screen
                 name="DrawerRoutes"
                 component={DrawerRoutes}
@@ -15,13 +22,7 @@ export default function Routes() {
                     headerShown:false
                 }}
             />
-            <Stack.Screen
-                name="Homepage"
-                component={Home}
-                options={{
-                    headerShown:false
-                }}
-            />
+
         </Stack.Navigator>
     );
 }

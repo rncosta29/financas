@@ -4,6 +4,7 @@
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `data_criacao` datetime(6) DEFAULT NULL,
+  `data_atualizacao` datetime(6) DEFAULT NULL,
   `account_non_expired` bit(1) DEFAULT NULL,
   `account_non_locked` bit(1) DEFAULT NULL,
   `credentials_non_expired` bit(1) DEFAULT NULL,

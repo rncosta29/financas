@@ -26,7 +26,7 @@ function AuthProvider(props: AuthContextProviderProps) {
             if(nome === '' || nome === null || pass === '' || pass === null)
                   alert('Campos não podem ser vazios ou nulos')
             else {
-                  await fetch('http://192.168.15.37:8088/auth/signin', {
+                  await fetch('http://192.168.15.94:8088/auth/signin', {
                         method: 'POST',
                         body: JSON.stringify({
                               username: nome,
@@ -51,7 +51,7 @@ function AuthProvider(props: AuthContextProviderProps) {
       }
 
       async function getUser(token: String) {
-            await fetch('http://192.168.15.37:8088/auth/find', {
+            await fetch('http://192.168.15.94:8088/auth/find', {
                   method: 'GET',
                   headers: {
                         'Accept': 'application/json',

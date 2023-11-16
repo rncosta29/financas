@@ -83,7 +83,7 @@ public class AuthService {
 	public ResponseEntity<UserVO> save(UserVO model) throws Exception {
 		logger.info("Criando um novo usuário");
 		
-		Permission permission = permissionRepository.findById(2L).orElseThrow(() -> new ResourceNotFoundException("Nenhum registro encontrado para esse id!!!"));
+		Permission permission = permissionRepository.findById(1L).orElseThrow(() -> new ResourceNotFoundException("Nenhum registro encontrado para esse id!!!"));
 		var entity = DozzerMapper.parseObject(model, UserModel.class);
 		
 		entity.setAccountNonExpired(true);
