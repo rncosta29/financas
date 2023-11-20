@@ -30,6 +30,9 @@ public class BancoModel implements Serializable {
 	@Column(name = "url_imagem")
 	private String urlImagem;
 	
+	@Column(name = "cor_banco")
+	private String cor_banco;
+	
 	@Column(name = "user_id")
 	private Long user_id;
 	
@@ -80,9 +83,17 @@ public class BancoModel implements Serializable {
 		this.user_id = user_id;
 	}
 
+	public String getCor_banco() {
+		return cor_banco;
+	}
+
+	public void setCor_banco(String cor_banco) {
+		this.cor_banco = cor_banco;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nomeBanco, urlImagem, user, user_id);
+		return Objects.hash(cor_banco, id, nomeBanco, urlImagem, user, user_id);
 	}
 
 	@Override
@@ -94,8 +105,8 @@ public class BancoModel implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		BancoModel other = (BancoModel) obj;
-		return Objects.equals(id, other.id) && Objects.equals(nomeBanco, other.nomeBanco)
-				&& Objects.equals(urlImagem, other.urlImagem) && Objects.equals(user, other.user)
-				&& Objects.equals(user_id, other.user_id);
+		return Objects.equals(cor_banco, other.cor_banco) && Objects.equals(id, other.id)
+				&& Objects.equals(nomeBanco, other.nomeBanco) && Objects.equals(urlImagem, other.urlImagem)
+				&& Objects.equals(user, other.user) && Objects.equals(user_id, other.user_id);
 	}
 }

@@ -16,6 +16,10 @@ export const Scroll = styled.ScrollView`
       
 `
 
+export const Scrolla = styled.FlatList`
+      
+`
+
 export const TituloView = styled.View`
       justify-content: space-between;
       align-items: flex-start;

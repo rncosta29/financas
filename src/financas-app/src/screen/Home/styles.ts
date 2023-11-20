@@ -23,8 +23,8 @@ export const Containerform = styled.View`
 export const Titulo = styled.Text`
     font-size: ${THEME.FONT_SIZE.LG}px;
     font-weight: bold;
-    margin-top: 28;
-    margin-bottom: 12;
+    margin-top: 28px;
+    margin-bottom: 12px;
 `
 
 export const Texto = styled.Text`

@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { THEME } from '../../theme';
 
-export const Card = styled.TouchableOpacity`
+export const Card = styled.View`
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
@@ -13,7 +13,9 @@ export const Card = styled.TouchableOpacity`
       border-width: 0.5px;
       border-radius: 15px;
       border-color: ${THEME.COLORS.WHITE};
-      background-color: red;
+      background-color: ${(props: { bgColor: any }) => {
+            return props.bgColor}
+      }
 `
 
 export const CardImage = styled.Image`
