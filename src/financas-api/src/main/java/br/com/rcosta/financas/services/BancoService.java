@@ -68,6 +68,7 @@ public class BancoService {
 		
 		entity.setNomeBanco(model.getNomeBanco());
 		entity.setUrlImagem(model.getUrlImagem());
+		entity.setCor_banco(model.getCor_banco());
 		entity.setUser(user);
 		entity.setUser_id(user.getId());
 		

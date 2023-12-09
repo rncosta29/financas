@@ -14,8 +14,8 @@ export const Containerlogo = styled.View`
 
 export const Containerform = styled.View`
     flex: 2;
-    border-top-left-radius: 25;
-    border-top-right-radius: 25;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     padding-left: 5%;
     padding-right: 5%;
 `

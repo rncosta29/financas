@@ -75,7 +75,7 @@ public class AuthController {
 		return authService.save(vo);
 	}
 	
-	@GetMapping(value = "/find", produces = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML }, consumes = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML })
+	@GetMapping(value = "/find")
 	@Operation(summary = "Recuperando usuário por token", description = "Recuperando usuário por token", tags = {"Authentication"}, responses = {
 			@ApiResponse(description = "Success", responseCode = "200", content = 
 					@Content(schema = @Schema(implementation = UserVO.class))

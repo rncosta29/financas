@@ -31,7 +31,7 @@ function AuthProvider(props: AuthContextProviderProps) {
             if(nome === '' || nome === null || pass === '' || pass === null)
                   alert('Campos não podem ser vazios ou nulos')
             else {
-                  fetch(`${env.BASE_URL}/auth/signin`, {
+                  fetch(`${env.baseURL}/auth/signin`, {
                         method: 'POST',
                         body: JSON.stringify({
                               username: nome,
@@ -47,7 +47,7 @@ function AuthProvider(props: AuthContextProviderProps) {
                               .then((a) => console.log(a))
 
                         if(tokenResponseModel?.accessToken === '' || tokenResponseModel?.accessToken === null || tokenResponseModel?.accessToken === undefined){
-                              console.log(`${env.BASE_URL}/auth/signin`);
+                              console.log(`${env.baseURL}/auth/signin`);
                               alert('Usuário ou senha invalidos!')
                         }
 
@@ -66,7 +66,7 @@ function AuthProvider(props: AuthContextProviderProps) {
       }
 
       async function getUser(token: String) {
-            await fetch(`${env.BASE_URL}/auth/find`, {
+            await fetch(`${env.baseURL}/auth/find`, {
                   method: 'GET',
                   headers: {
                         'Accept': 'application/json',
@@ -92,7 +92,7 @@ function AuthProvider(props: AuthContextProviderProps) {
                 id: '1001'
             }).then(resp => { setTokenResponseModel(resp) });
     
-            await fetch(`${env.BASE_URL}/api/v1/banco`, {
+            await fetch(`${env.baseURL}/api/v1/banco`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',

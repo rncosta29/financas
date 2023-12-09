@@ -31,7 +31,7 @@ public class BancoController {
 	@Autowired
 	private BancoService bancoService;
 	
-	@GetMapping(produces = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML })
+	@GetMapping
 	@Operation(summary = "Encontrar todos os bancos", description = "Encontre todos os bancos", tags = {"Banco"}, responses = {
 			@ApiResponse(description = "Success", responseCode = "200", content = {
 					@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = BancoVO.class)))
@@ -63,7 +63,7 @@ public class BancoController {
 	}
 	
 	@CrossOrigin(origins = { "http://localhost:8088", "http://localhost:19002" })
-	@PostMapping(value = "/create", produces = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML }, consumes = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML })
+	@PostMapping(value = "/create")
 	@Operation(summary = "Criando um novo card de banco", description = "Criando um novo card de banco", tags = {"Banco"}, responses = {
 			@ApiResponse(description = "Success", responseCode = "200", content = 
 					@Content(schema = @Schema(implementation = BancoVO.class))

@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.github.dozermapper.core.Mapping;
 
-@JsonPropertyOrder({"id", "nomeBanco", "urlImagem", "userId"})
+@JsonPropertyOrder({"id", "dataCompra", "estabelecimento", "valor", "banco_id"})
 public class EstabelecimentoVO extends RepresentationModel<EstabelecimentoVO> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -21,7 +21,6 @@ public class EstabelecimentoVO extends RepresentationModel<EstabelecimentoVO> im
 	private Date dataCompra;
 	private String estabelecimento;
 	private Double valor;
-	private BancoVO banco;
 	private Long banco_id;
 	
 	public EstabelecimentoVO() { }
@@ -86,13 +85,5 @@ public class EstabelecimentoVO extends RepresentationModel<EstabelecimentoVO> im
 		return Objects.equals(banco_id, other.banco_id) && Objects.equals(dataCompra, other.dataCompra)
 				&& Objects.equals(estabelecimento, other.estabelecimento) && Objects.equals(key, other.key)
 				&& Objects.equals(valor, other.valor);
-	}
-
-	public BancoVO getBanco() {
-		return banco;
-	}
-
-	public void setBanco(BancoVO banco) {
-		this.banco = banco;
 	}
 }

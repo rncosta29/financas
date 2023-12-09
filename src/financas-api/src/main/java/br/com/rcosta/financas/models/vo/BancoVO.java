@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.github.dozermapper.core.Mapping;
 
-@JsonPropertyOrder({"id", "nomeBanco", "urlImagem", "userId"})
+@JsonPropertyOrder({"id", "nomeBanco", "cor_banco", "urlImagem", "userId"})
 public class BancoVO extends RepresentationModel<BancoVO> implements Serializable {
 
 	private static final long serialVersionUID = 1L;

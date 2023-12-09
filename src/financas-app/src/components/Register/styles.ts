@@ -10,7 +10,7 @@ export const Botaologin = styled.TouchableOpacity`
     height: 50px;
     margin: 10px;
     border-width: 1px;
-    border-radius: 15%;
+    border-radius: 15px;
     background-color: ${THEME.COLORS.SUCCESS};
     justify-content: center;
     align-items: center;

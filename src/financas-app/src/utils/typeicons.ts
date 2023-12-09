@@ -8,13 +8,13 @@ import iconNubank from '../assets/nubank.png';
 import iconXp from '../assets/xp.png';
 
 export const typeIcons = [
-      undefined,
-      iconBradesco,
-      iconC6,
-      iconClick,
-      iconItau,
-      iconLuiza,
-      iconNeon,
-      iconNubank,
-      iconXp
+      undefined,//0
+      iconBradesco,//1
+      iconC6,//2
+      iconClick,//3
+      iconItau,//4
+      iconLuiza,//5
+      iconNeon,//6
+      iconNubank,//7
+      iconXp//8
 ]
